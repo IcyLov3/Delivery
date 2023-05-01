@@ -1,58 +1,53 @@
-<template>
-  <div class="feedback-form">
-    <form
-      netlify
-      netlify-honeypot
-      name="feedback"
-      method="POST"
-      action="/success"
-    >
-      <p class="hidden">
-        <label>
-          Don’t fill this out if you’re human: <input name="bot-field" />
-        </label>
-      </p>
-      <input type="hidden" name="form-name" value="feedback" />
-      <label for="name">Name</label>
-      <input id="name" type="text" name="name" />
-      <label for="email">Email</label>
-      <input id="email" type="email" name="email" required />
-      <label for="feedback">What is your feedback?</label>
-      <textarea id="feedback" wrap="soft" name="feedback" required></textarea>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-</template>
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Моя форма</title>
+ <style>
+  input[type="text"], input[type="email"], input[type="tel"], textarea {
+   width: 100%;
+   padding: 12px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+   margin-bottom: 16px;
+  }
 
-<style scoped>
-.feedback-form {
-  margin: 40px 40px;
-  min-width: 250px;
-  width: 45%;
-}
-input,
-textarea,
-button {
-  font-size: inherit;
-  margin: 15px 0;
-  padding: 12px 20px;
-  width: 100%;
-}
+  label {
+   font-weight: bold;
+   display: block;
+   margin-bottom: 8px;
+  }
 
-button {
-  background-color: teal;
-  border: 1px solid black;
-  color: white;
-  width: 50%;
-}
+  button[type="submit"] {
+   background-color: #4CAF50;
+   color: white;
+   padding: 12px 20px;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+  }
 
-.hidden {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-</style>
+  button[type="submit"]:hover {
+   background-color: #45a049;
+  }
+ </style>
+</head>
+<body>
+ <h1>Моя форма</h1>
+ <form action="submit-form.php" method="post">
+  <label for="first_name">Имя:</label>
+  <input type="text" id="first_name" name="first_name" required>
+  <br>
+  <label for="last_name">Фамилия:</label>
+  <input type="text" id="last_name" name="last_name" required>
+  <br>
+  <label for="phone">Телефон:</label>
+  <input type="tel" id="phone" name="phone" required>
+  <br>
+  <label for="address">Адрес:</label>
+  <textarea id="address" name="address" required></textarea>
+  <br>
+  <input type="submit" value="Submit">
+ </form>
+</body>
+</html>
